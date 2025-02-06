@@ -1,5 +1,6 @@
 import { Client, Avatars, Account, OAuthProvider } from "react-native-appwrite";
 import * as Linking from "expo-linking";
+import { openAuthSessionAsync } from "expo-web-browser";
 
 export const config = {
   platform: "com.roomman.restate",
@@ -63,7 +64,7 @@ export async function logout() {
   }
 }
 
-export async function getUser() {
+export async function getCurrentUser() {
   try {
     const response = await account.get();
     if (response.$id) {
